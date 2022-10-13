@@ -23,7 +23,6 @@ moment = Moment(app)
 app.config.from_object('config')
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
-
 #----------------------------------------------------------------------------#
 # Models.
 #----------------------------------------------------------------------------#
@@ -47,8 +46,8 @@ class Venue(db.Model):
     
     def __repr__(self):
            return f'<Venue ID: {self.id}, name: {self.name}>'
-
-
+         
+  
     # Artists table
 
 class Artist(db.Model):
@@ -289,7 +288,6 @@ def edit_artist_submission(artist_id):
     for field, message in form.errors.items():
       flash(field + ' - ' + str(message))
   
-
   return redirect(url_for('show_artist', artist_id=artist_id))
 
 @app.route('/venues/<int:venue_id>/edit', methods=['GET'])
